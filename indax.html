@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXORA Elite Collection</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#c89b3c;
+border-radius:20px;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 50px;
+background:#060606;
+border-bottom:1px solid rgba(255,255,255,0.08);
+z-index:999;
+}
+
+.logo{
+font-size:42px;
+font-weight:700;
+color:#c89b3c;
+letter-spacing:2px;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:40px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-size:15px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#c89b3c;
+}
+
+.menu-right{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.btn{
+padding:11px 28px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.login{
+border:1px solid #c89b3c;
+background:transparent;
+color:white;
+}
+
+.signup{
+background:#c89b3c;
+border:none;
+color:black;
+}
+
+/* MENU BUTTON FOR MOBILE */
+.menu-btn-mobile {
+display: none;
+background: transparent;
+border: 1px solid #c89b3c;
+color: #c89b3c;
+padding: 8px 16px;
+border-radius: 8px;
+font-weight: 600;
+cursor: pointer;
+font-size: 14px;
+transition: 0.3s;
+}
+
+.menu-btn-mobile:hover {
+background: #c89b3c;
+color: black;
+}
+
+.hero{
+margin-top:80px;
+height:420px;
+padding:80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:
+linear-gradient(to right,#000000f3,#0000005d),
+url('https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1800&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.hero-text h1{
+font-size:90px;
+font-weight:800;
+line-height:1;
+}
+
+.hero-text span{
+color:#c89b3c;
+}
+
+.hero-text p{
+margin-top:20px;
+font-size:20px;
+color:#d2d2d2;
+}
+
+.hero-btn{
+margin-top:35px;
+padding:18px 35px;
+border:none;
+border-radius:12px;
+background:#c89b3c;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* PRODUCT GRID */
+
+.section{
+padding:40px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#0b0b0b;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:18px;
+overflow:hidden;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 30px rgba(200,155,60,0.18);
+}
+
+.card img{
+width:100%;
+height:290px;
+object-fit:cover;
+display:block;
+}
+
+.custom-photo{
+object-position:top;
+}
+
+.card-content{
+padding:18px;
+}
+
+.tag{
+font-size:13px;
+font-weight:600;
+color:#c89b3c;
+margin-bottom:10px;
+}
+
+.card h2{
+font-size:33px;
+margin-bottom:12px;
+}
+
+.card p{
+color:#bbbbbb;
+line-height:1.6;
+font-size:14px;
+margin-bottom:18px;
+}
+
+.price{
+font-size:32px;
+font-weight:700;
+margin-bottom:18px;
+}
+
+.view-btn{
+width:100%;
+padding:14px;
+background:#c89b3c;
+border:none;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
+font-size:15px;
+}
+
+/* FEATURE BAR */
+
+.features{
+margin-top:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.feature-box{
+background:#0b0b0b;
+border:1px solid rgba(255,255,255,0.08);
+padding:22px;
+border-radius:16px;
+}
+
+.feature-box h3{
+font-size:18px;
+color:#c89b3c;
+margin-bottom:8px;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:40px;
+padding:50px 40px;
+background:#050505;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+footer h2{
+color:#c89b3c;
+margin-bottom:18px;
+}
+
+footer p{
+color:#bdbdbd;
+line-height:1.8;
+}
+
+.socials{
+display:flex;
+gap:12px;
+margin-top:18px;
+}
+
+.socials div{
+width:42px;
+height:42px;
+border-radius:50%;
+border:1px solid rgba(255,255,255,0.2);
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+transition:0.3s;
+}
+
+.socials div:hover{
+background:#c89b3c;
+color:black;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:900px){
+
+header{
+padding:0 20px;
+}
+
+.logo{
+font-size:28px;
+}
+
+nav {
+display: none;
+}
+
+.menu-right .btn {
+display: none; /* Hide Login/Signup on small screens */
+}
+
+.menu-btn-mobile {
+display: block; /* Show premium Menu button on mobile */
+}
+
+.hero{
+padding:40px 25px;
+height:auto;
+}
+
+.hero-text h1{
+font-size:52px;
+}
+
+.hero-text p{
+font-size:16px;
+}
+
+.section{
+padding:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">LUXORA</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Collection</a>
+<a href="#">Luxury</a>
+<a href="#">Contact</a>
+</nav>
+
+<div class="menu-right">
+<button class="btn login">Login</button>
+<button class="btn signup">Sign Up</button>
+<button class="menu-btn-mobile">Menu ☰</button>
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Elite <span>Collection</span></h1>
+
+<p>Premium fashion for premium people.</p>
+
+<button class="hero-btn">Explore Collection</button>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="products">
+
+<div class="card">
+
+<img src="https://i.ibb.co/pvLYDCTR/Picsart-26-05-17-09-40-25-202.jpg"
+class="custom-photo"
+alt="The Noir Portrait Suit">
+
+<div class="card-content">
+
+<div class="tag">Executive Style</div>
+
+<h2>The Noir Portrait Suit</h2>
+
+<p>
+Impeccable fit. Timeless elegance. A portrait of modern luxury.
+</p>
+
+<div class="price">$250</div>
+
+<button class="view-btn">View Item</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.ibb.co/prPqc4yL/Picsart-26-05-17-20-00-23-772.jpg"
+class="custom-photo"
+alt="Velvet Prime Shirt">
+
+<div class="card-content">
+
+<div class="tag">Luxury Shirt</div>
+
+<h2>Velvet Prime</h2>
+
+<p>
+Premium black luxury shirt with elite modern styling.
+</p>
+
+<div class="price">$200</div>
+
+<button class="view-btn">View Item</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<div class="tag">Luxury Pants</div>
+
+<h2>Urban Noir</h2>
+
+<p>
+Elegant premium-fit pants designed for elite style.
+</p>
+
+<div class="price">$2,300</div>
+
+<button class="view-btn">View Item</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<div class="tag">Luxury Shoes</div>
+
+<h2>Phantom X</h2>
+
+<p>
+Royal black-gold sneakers crafted for modern luxury.
+</p>
+
+<div class="price">$3,100</div>
+
+<button class="view-btn">View Item</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<div class="tag">Luxury Watch</div>
+
+<h2>Royal Chrono</h2>
+
+<p>
+Timeless premium watch with royal metallic finish.
+</p>
+
+<div class="price">$8,900</div>
+
+<button class="view-btn">View Item</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<div class="tag">Luxury Perfume</div>
+
+<h2>Noir Essence</h2>
+
+<p>
+Deep luxury fragrance for rich premium personality.
+</p>
+
+<div class="price">$1,700</div>
+
+<button class="view-btn">View Item</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<div class="tag">Designer Shirt</div>
+
+<h2>Golden Aura</h2>
+
+<p>
+Modern white premium shirt with elegant clean vibes.
+</p>
+
+<div class="price">$2,150</div>
+
+<button class="view-btn">View Item</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<div class="tag">Luxury Shoes</div>
+
+<h2>Imperial Loafer</h2>
+
+<p>
+Luxury formal shoes with premium comfort.
+</p>
+
+<div class="price">$2,850</div>
+
+<button class="view-btn">View Item</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="features">
+
+<div class="feature-box">
+<h3>Premium Quality</h3>
+<p>100% Original Products</p>
+</div>
+
+<div class="feature-box">
+<h3>Secure Payment</h3>
+<p>100% Secure Payment</p>
+</div>
+
+<div class="feature-box">
+<h3>Fast Delivery</h3>
+<p>Worldwide Shipping</p>
+</div>
+
+<div class="feature-box">
+<h3>Easy Returns</h3>
+<p>30 Days Easy Returns</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div>
+
+<h2>LUXORA</h2>
+
+<p>
+Luxury fashion and premium lifestyle collection for elite people.
+</p>
+
+<div class="socials">
+<div>F</div>
+<div>I</div>
+<div>X</div>
+</div>
+
+</div>
+
+<div>
+
+<h2>Collections</h2>
+
+<p>Luxury Shirts</p>
+<p>Elite Pants</p>
+<p>Premium Shoes</p>
+<p>Royal Watches</p>
+<p>Luxury Perfumes</p>
+
+</div>
+
+<div>
+
+<h2>Company</h2>
+
+<p>About Us</p>
+<p>Contact</p>
+<p>Privacy Policy</p>
+<p>Terms & Conditions</p>
+
+</div>
+
+<div>
+
+<h2>Contact Us</h2>
+
+<p>+91 8601089655</p>
+<p></p>
+<p>India</p>
+
+</div>
+
+</footer>
+
+</body>
+</html>
